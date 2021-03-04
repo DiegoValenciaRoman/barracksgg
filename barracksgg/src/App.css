@@ -1,3 +1,4 @@
+@import "react-slideshow-image/dist/styles.css";
 .container {
   position: fixed;
   top: 50%;
@@ -157,4 +158,27 @@
   padding: 6px 12px;
 
   border-top: none;
+}
+.tabComponent {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #a1a1a1;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 700px;
+}
+
+.each-slide span {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+}
+.react-slideshow-wrapper {
+  border-radius: 10px;
 }

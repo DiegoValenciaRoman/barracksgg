@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { logOutUser, selectUser } from "../../features/counter/appSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Pokemon from "../PokemonComponent/Pokemon";
+import Nasa from "../NasaComponent/Nasa";
 function Dashboard() {
   //utility to dispatch actions
   const dispatch = useDispatch();
@@ -37,6 +39,22 @@ function Dashboard() {
       })
     );
   };
+
+  /**
+   * @params component name
+   * @description maps component's name to the actual component selected by the user on the tab window
+   * @returns component
+   */
+  const getComponent = (name) => {
+    switch (name) {
+      case "POKÉMON":
+        return <Pokemon></Pokemon>;
+      case "NASA POD":
+        return <Nasa></Nasa>;
+      default:
+        break;
+    }
+  };
   useEffect(() => {
     console.log(tabsInfo);
     if (!user.isAuth) {
@@ -69,15 +87,15 @@ function Dashboard() {
               </button>
             ))}
           </div>
-          {tabsInfo.map((tab) =>
-            tab.isActive ? (
-              <div class="tabcontent">
-                <h3>{tab.name}</h3>
-              </div>
-            ) : (
-              ""
-            )
-          )}
+          <div className="tabComponent">
+            {tabsInfo.map((tab) =>
+              tab.isActive ? (
+                <div class="tabcontent">{getComponent(tab.name)}</div>
+              ) : (
+                ""
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>
