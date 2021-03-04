@@ -1,56 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+
+import "./App.css";
+import Dashboard from "./components/DashboardComponent/Dashboard";
+import Login from "./components/LoginComponent/Login";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+import Protectedroute from "./components/ProtectedrouteComponent/Protectedroute";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoggedUser } from "./features/counter/appSlice";
+
+import { useHistory, useLocation } from "react-router-dom";
 
 function App() {
+  const dispatch = useDispatch();
+  const loadStateFromLocalStorage = () => {
+    try {
+      const localStorageState = localStorage.getItem("Token");
+      if (localStorageState === null) {
+        return undefined;
+      }
+      return localStorageState;
+    } catch (e) {
+      return undefined;
+    }
+  };
+  useEffect(() => {
+    console.log("loaded from local", loadStateFromLocalStorage());
+    let localStorageState = loadStateFromLocalStorage();
+    if (localStorageState !== undefined) {
+      console.log("setting from storage");
+      dispatch(setLoggedUser(localStorageState));
+    }
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/account/login" component={Login} />
+          <Protectedroute
+            exact={true}
+            path="/account/data"
+            component={Dashboard}
+          />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
