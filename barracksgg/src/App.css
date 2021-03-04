@@ -75,3 +75,54 @@
   font-size: 14px;
   line-height: 14px;
 }
+
+.mainDashboardContainer {
+  gap: 1rem;
+  grid-auto-flow: row;
+  margin: 0 0 1rem 0;
+}
+.dashboard {
+  background-color: gray;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3%;
+}
+.token {
+  word-wrap: break-word;
+  background: #3e3e3e;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 15px rgba(17, 15, 21, 0.35);
+  border-radius: 6px;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+}
+.logOutButton {
+  width: 139px;
+  height: 40px;
+  background-color: #e02020;
+  color: white;
+  border-radius: 6px;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+
+  text-align: center;
+  border: none;
+}
+
+.buttons {
+  text-align: right;
+}
+.tabContainerDashboard {
+  background-color: blue;
+}

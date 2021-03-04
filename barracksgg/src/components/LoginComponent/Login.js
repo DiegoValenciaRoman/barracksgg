@@ -36,6 +36,11 @@ function Login() {
     return formData.mail === "" || formData.password === "";
   };
 
+  /**
+   * @params None, uses local component state
+   * @description Dispatchs form's data to the action that makes the api request
+   * @returns void
+   */
   const login = () => {
     console.log(formData);
     if (checkEmptyForm()) {
@@ -46,7 +51,6 @@ function Login() {
   };
 
   useEffect(() => {
-    console.log("select user ", user);
     if (user.isAuth) {
       history.push("/account/data");
     }

@@ -16,9 +16,18 @@ function Dashboard() {
     }
   }, [user]);
   return (
-    <div>
-      <button onClick={logOut}>Salir</button>
-      <h1>{user?.token}</h1>
+    <div className="dashboard">
+      <div className="mainDashboardContainer">
+        <div className="headerDashboard">
+          <div className="buttons">
+            <button onClick={logOut} className="logOutButton">
+              Salir
+            </button>
+          </div>
+          <div className="token">{user?.token}</div>
+        </div>
+        <div className="tabContainerDashboard">tabs here</div>
+      </div>
     </div>
   );
 }
