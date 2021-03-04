@@ -16,11 +16,21 @@ function Nasa() {
     //let nasaUrl = new URL("https://api.nasa.gov/planetary/apod");
     //nasaUrl.searchParams("api_key", process.env.REACT_APP_NASA);
     //nasaUrl.searchParams("count", 3)
+    let startDate = new Date();
+    startDate.setDate(startDate.getDate() - 2);
+    startDate = startDate.toISOString().slice(0, 10);
+    console.log(startDate);
+    let endDate = new Date();
+    endDate = endDate.toISOString().slice(0, 10);
+    console.log(endDate);
     axios
       .get(
         "https://api.nasa.gov/planetary/apod?api_key=" +
           process.env.REACT_APP_NASA +
-          "&count=3"
+          "&start_date=" +
+          startDate +
+          "&end_date=" +
+          endDate
       )
       .then((response) => {
         if (response.status === 200) {
