@@ -18,6 +18,7 @@ function Dashboard() {
   return (
     <div>
       <button onClick={logOut}>Salir</button>
+      <h1>{user?.token}</h1>
     </div>
   );
 }
