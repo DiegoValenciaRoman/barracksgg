@@ -3,12 +3,10 @@ import React, { useEffect } from "react";
 import "./App.css";
 import Dashboard from "./components/DashboardComponent/Dashboard";
 import Login from "./components/LoginComponent/Login";
-import { Route, BrowserRouter, Switch } from "react-router-dom";
+import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 import Protectedroute from "./components/ProtectedrouteComponent/Protectedroute";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setLoggedUser } from "./features/counter/appSlice";
-
-import { useHistory, useLocation } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +34,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
+          <Route exact path="/">
+            <Redirect to="/account/login" />
+          </Route>
           <Route path="/account/login" component={Login} />
           <Protectedroute
             exact={true}

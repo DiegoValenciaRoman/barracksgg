@@ -56,7 +56,6 @@ function Dashboard() {
     }
   };
   useEffect(() => {
-    console.log(tabsInfo);
     if (!user.isAuth) {
       history.push("/account/login");
     }

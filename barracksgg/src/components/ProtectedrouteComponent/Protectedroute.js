@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/counter/appSlice";
 function Protectedroute(props) {
-  const [isAuth, setIsAuth] = useState(true);
+  const user = useSelector(selectUser);
   const Component = props.component;
-  return isAuth ? (
+  return user.isAuth ? (
     <Component />
   ) : (
     <Redirect to={{ pathname: "/account/login" }} />

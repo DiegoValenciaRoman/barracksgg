@@ -151,6 +151,8 @@
   background-color: #2c167a !important;
   color: white;
   margin: 2px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 /* Style the tab content */
@@ -181,4 +183,20 @@
 }
 .react-slideshow-wrapper {
   border-radius: 10px;
+}
+#pokemonSelect {
+  background-color: #2c167a;
+  width: 164px;
+  height: 40px;
+  color: white;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 12px;
+  border-radius: 6px;
+}
+
+.imageShowcase {
+  text-align: center;
 }

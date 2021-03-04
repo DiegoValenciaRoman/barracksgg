@@ -32,14 +32,13 @@ function Nasa() {
   return (
     <div style={{ padding: "2%" }}>
       <Slide easing="ease">
-        {imageData.map((image) => (
-          <div className="each-slide">
+        {imageData.map((image, i) => (
+          <div className="each-slide" key={i}>
             <div style={{ backgroundImage: `url(${image.url})` }}>
               <div
                 style={{
                   marginTop: "30%",
                   textAlign: "center",
-                  textShadow: "2px 2px #ff0000;",
                 }}
               >
                 <div style={{ color: "white" }}>

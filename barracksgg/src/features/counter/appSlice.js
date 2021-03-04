@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 export const appSlice = createSlice({
   name: "app",
@@ -31,17 +30,17 @@ export const sendUserCredentials = (payload) => (dispatch) => {
     data: payload,
   })
     .then((response) => {
-      console.log(response);
       if (response.status === 200) {
         dispatch(setLoggedUser(response.data.token));
       } else {
-        alert(response.status);
+        alert("cors");
       }
     })
     .catch((error) => {
+      alert("cors");
       if (error.response) {
         console.log(error.response.status);
-        alert(error.response.status, "cors");
+        alert(error.response.status);
       }
     });
 };
