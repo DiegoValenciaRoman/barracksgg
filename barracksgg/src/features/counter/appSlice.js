@@ -34,12 +34,14 @@ export const sendUserCredentials = (payload) => (dispatch) => {
       console.log(response);
       if (response.status === 200) {
         dispatch(setLoggedUser(response.data.token));
+      } else {
+        alert(response.status);
       }
     })
     .catch((error) => {
-      console.log(error);
       if (error.response) {
         console.log(error.response.status);
+        alert(error.response.status, "cors");
       }
     });
 };

@@ -82,7 +82,7 @@
   margin: 0 0 1rem 0;
 }
 .dashboard {
-  background-color: gray;
+  background-color: rgb(215, 215, 215);
   position: absolute;
   top: 0;
   right: 0;
@@ -102,6 +102,9 @@
   font-weight: normal;
   font-size: 16px;
   color: white;
+  padding: 1.5%;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
 .logOutButton {
   width: 139px;
@@ -124,5 +127,34 @@
   text-align: right;
 }
 .tabContainerDashboard {
-  background-color: blue;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tablinks {
+  background-color: #2c167a !important;
+  color: white;
+  margin: 2px;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding: 6px 12px;
+
+  border-top: none;
 }
