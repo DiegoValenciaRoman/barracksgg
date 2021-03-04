@@ -41,7 +41,7 @@ function Dashboard() {
   };
 
   /**
-   * @params component name
+   * @params component name: String
    * @description maps component's name to the actual component selected by the user on the tab window
    * @returns component
    */

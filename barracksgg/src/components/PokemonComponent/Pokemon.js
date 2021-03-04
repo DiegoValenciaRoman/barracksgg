@@ -5,6 +5,11 @@ function Pokemon() {
   const [pokemons, setPokemons] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState("");
 
+  /**
+   * @params None, uses local component state
+   * @description Updates pokemons array info from the data fetched from the pokemon API
+   * @returns void
+   */
   const getPokemons = () => {
     //por defecto se limita a 20 pokemons
     axios
@@ -23,6 +28,13 @@ function Pokemon() {
         alert(error);
       });
   };
+
+  /**
+   * @params pokemonUrl: string
+   * @description fetches specific pokemon data from pokemon API based on the url from the parameter and updates the pokemon selected image info
+   * on the local state
+   * @returns void
+   */
 
   const getPokemon = (pokemonUrl) => {
     axios

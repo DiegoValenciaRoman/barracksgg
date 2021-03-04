@@ -4,7 +4,13 @@ import { useState } from "react";
 import { Slide } from "react-slideshow-image";
 
 function Nasa() {
+  //local state to manage images data
   const [imageData, setImageData] = useState([]);
+  /**
+   * @params None, uses local component state
+   * @description Fetches data from nasa API and updates the imageData displayed later on the slideshow
+   * @returns void
+   */
   const getDataFromNasa = () => {
     //not suported :(
     //let nasaUrl = new URL("https://api.nasa.gov/planetary/apod");
